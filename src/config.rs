@@ -2810,12 +2810,17 @@ pub fn is_disable_settings() -> bool {
 
 #[inline]
 pub fn is_disable_ab() -> bool {
-    is_some_hard_opton("disable-ab")
+    // SoCo Sentry: the address book needs a RustDesk account server, which this
+    // fork's portal deliberately doesn't implement — hide the AB tab everywhere.
+    true
 }
 
 #[inline]
 pub fn is_disable_account() -> bool {
-    is_some_hard_opton("disable-account")
+    // SoCo Sentry: no account system (the api-server is only used for the
+    // portal heartbeat/sysinfo). Hides the Login dialog triggers, the account
+    // settings tab, and the toolbar login item.
+    true
 }
 
 #[inline]
